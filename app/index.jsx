@@ -13,8 +13,9 @@ const Welcome = () => {
   // if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (
+
     <SafeAreaView className="bg-primary h-full">
-      {/* <Loader isLoading={loading} /> */}
+      
 
       <ScrollView
         contentContainerStyle={{
@@ -55,7 +56,7 @@ const Welcome = () => {
 
           <CustomButton
             title="Continue with Email"
-            handlePress={() => router.push("/(tabs)/index")}
+            handlePress={() => router.push("/home")}
             containerStyles="w-full mt-7"
           />
         </View>
