@@ -42,19 +42,19 @@ const SignUp = () => {
     <SafeAreaView className="bg-primary h-full" >
       <ScrollView>
         <View
-          className="w-full flex justify-center h-full px-4 my-6"
-          style={{
+        className="w-full flex justify-center min-h-[83vh]: px-4 my-6"         
+         style={{
             minHeight: Dimensions.get("window").height - 100,
           }}
         >
           <Image
-            source={images.logo}
+            source={images.tunmi}
             resizeMode="contain"
-            className="w-[115px] h-[34px]"
+            className="w-[150px] h-[50px]"
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Sign Up to Aora
+            Sign Up to Tunmi
           </Text>
 
           <FormField
@@ -86,7 +86,7 @@ const SignUp = () => {
             isLoading={isSubmitting}
           />
 
-          <View className="flex justify-center pt-5 flex-row gap-2">
+          <View className=" justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
               Have an account already?
             </Text>
