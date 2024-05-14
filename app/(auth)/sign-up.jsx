@@ -28,6 +28,7 @@ const SignUp = () => {
       const result = await createUser(form.email, form.password, form.username);
       // setUser(result);
       // setIsLogged(true);
+      
 
       router.replace("/home");
     } catch (error) {
@@ -38,7 +39,7 @@ const SignUp = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-primary h-full" >
       <ScrollView>
         <View
           className="w-full flex justify-center h-full px-4 my-6"
