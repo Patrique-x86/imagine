@@ -56,8 +56,8 @@ const Welcome = () => {
 
           <CustomButton
             title="Continue with Email"
-            handlePress={() => router.push("/home")}
-            containerStyles="w-full mt-7"
+            handlePress={() => router.push("/sign-in")} 
+            containerStyles="w-full mt-7"  
           />
         </View>
       </ScrollView>
