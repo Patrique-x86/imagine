@@ -9,7 +9,7 @@ import { CustomButton, FormField } from "../../components";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignUp = () => {
-  // const { setUser, setIsLogged } = useGlobalContext();
+   const { setUser, setIsLogged } = useGlobalContext();
 
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
@@ -26,9 +26,9 @@ const SignUp = () => {
     setSubmitting(true);
     try {
       const result = await createUser(form.email, form.password, form.username);
-      // setUser(result);
-      // setIsLogged(true);
-      
+       setUser(result);
+       setIsLogged(true);
+
 
       router.replace("/home");
     } catch (error) {
@@ -51,6 +51,7 @@ const SignUp = () => {
             source={images.tunmi}
             resizeMode="contain"
             className="w-[150px] h-[50px]"
+            
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">

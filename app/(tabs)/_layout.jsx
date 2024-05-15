@@ -106,6 +106,22 @@ const TabLayout = () => {
             ),
           }}
         />
+
+        <Tabs.Screen
+          name="generatevideo"
+          options={{
+            title: "Magic",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.bookmark}
+                color={color}
+                name="Magic"
+                focused={focused}
+              />
+            ),
+          }}
+        />
       </Tabs>
 
       {/* <Loader isLoading={loading} /> */}

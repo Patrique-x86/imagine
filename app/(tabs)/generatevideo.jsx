@@ -16,9 +16,10 @@ import { icons } from "../../constants";
 import { createVideoPost } from "../../lib/appwrite";
 import { CustomButton, FormField } from "../../components";
 import { useGlobalContext } from "../../context/GlobalProvider";
+import useTranslate from "../../hooks/useTranslate";
 
 const Create = () => {
-   const { user } = useGlobalContext();
+  const { user } = useGlobalContext();
   const [uploading, setUploading] = useState(false);
   const [form, setForm] = useState({
     title: "",
@@ -26,6 +27,7 @@ const Create = () => {
     thumbnail: null,
     prompt: "",
   });
+  const { translatedText, error } = useTranslate(form.prompt, "fr");
 
   const openPicker = async (selectType) => {
     const result = await DocumentPicker.getDocumentAsync({
@@ -59,50 +61,58 @@ const Create = () => {
   const submit = async () => {
     if (
       (form.prompt === "") |
-      (form.title === "") |
-      !form.thumbnail |
-      !form.video
+      (form.title === "") 
+      
     ) {
       return Alert.alert("Please provide all fields");
     }
 
     setUploading(true);
-    try {
-      await createVideoPost({
-        ...form,
-        userId: user.$id,
-      });
+    // try {
+    //   await createVideoPost({
+    //     ...form,
+    //     userId: user.$id,
+    //   });
 
-      Alert.alert("Success", "Post uploaded successfully");
-      router.push("/home");
-    } catch (error) {
-      Alert.alert("Error 5", error.message);
-    } finally {
-      setForm({
-        title: "",
-        video: null,
-        thumbnail: null,
-        prompt: "",
-      });
+    //   Alert.alert("Success", "Post uploaded successfully");
+    //   router.push("/home");
+    // } catch (error) {
+    //   Alert.alert("Error 5", error.message);
+    // } finally {
+    //   setForm({
+    //     title: "",
+    //     video: null,
+    //     thumbnail: null,
+    //     prompt: "",
+    //   });
+
+    
+     Alert.alert("Translate", translatedText );
 
       setUploading(false);
     }
-  };
+  
 
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView className="px-4 my-6">
-        <Text className="text-2xl text-white font-psemibold">Upload Video</Text>
+        <Text className="text-2xl text-white font-psemibold">
+          The new way to bring a story to life
+        </Text>
 
         <FormField
-          title="Video Title"
+          title="Your story title"
           value={form.title}
           placeholder="Give your video a catchy title..."
           handleChangeText={(e) => setForm({ ...form, title: e })}
           otherStyles="mt-10"
         />
 
-        <View className="mt-7 space-y-2">
+        <Text className="text-2xl text-white font-psemibold">
+          {translatedText}
+        </Text>
+
+        {/* <View className="mt-7 space-y-2">
           <Text className="text-base text-gray-100 font-pmedium">
             Upload Video
           </Text>
@@ -157,7 +167,7 @@ const Create = () => {
               </View>
             )}
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <FormField
           title="AI Prompt"
@@ -165,6 +175,9 @@ const Create = () => {
           placeholder="The AI prompt of your video...."
           handleChangeText={(e) => setForm({ ...form, prompt: e })}
           otherStyles="mt-7"
+          multiline={true}
+          numberOfLines={4}
+          area={"ok"}
         />
 
         <CustomButton
