@@ -90,6 +90,8 @@ const Create = () => {
      Alert.alert("Translate", translatedText );
 
       setUploading(false);
+     
+      return <Redirect href="/profile" />;
     }
   
 
