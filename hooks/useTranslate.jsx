@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useTranslate = (text, targetLanguage) => {
   const [translatedText, setTranslatedText] = useState("");
   const [error, setError] = useState(null);
-  const apiKey = "AIzaSyCLlW-Ao-95R_EFRBHw5RR1Xmp0CuYliHA";
+  const apiKey = "API_KEY";
   const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
 
   useEffect(() => {
