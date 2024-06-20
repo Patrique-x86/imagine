@@ -6,4 +6,8 @@ import logo from "../assets/images/logo.png";
 import logoSmall from "../assets/images/logo-small.png";
 import empty from "../assets/images/empty.png";
 
-export default { profile, thumbnail, cards, path, logo, logoSmall, empty };
+import tunmi from "../assets/images/tunmi_logo.png";
+import cardh from "../assets/images/cardh.png";
+
+
+export default { profile, thumbnail, cards, path, logo, logoSmall, empty ,tunmi,cardh};

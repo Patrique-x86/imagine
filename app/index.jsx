@@ -5,12 +5,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../constants";
 import { CustomButton, Loader } from "../components";
-// import { useGlobalContext } from "../context/GlobalProvider";
+ import { useGlobalContext } from "../context/GlobalProvider";
 
 const Welcome = () => {
-  // const { loading, isLogged } = useGlobalContext();
+   const { loading, isLogged } = useGlobalContext();
 
-  // if (!loading && isLogged) return <Redirect href="/home" />;
+   if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (
 
@@ -24,22 +24,22 @@ const Welcome = () => {
       >
         <View className="w-full flex justify-center items-center h-full px-4">
           <Image
-            source={images.logo}
-            className="w-[130px] h-[84px]"
+            source={images.tunmi}
+            className="w-[150px] h-[90px]"
             resizeMode="contain"
           />
 
           <Image
-            source={images.cards}
+            source={images.cardh}
             className="max-w-[380px] w-full h-[298px]"
             resizeMode="contain"
           />
 
           <View className="relative mt-5">
             <Text className="text-3xl text-white font-bold text-center">
-              Discover Endless{"\n"}
-              Possibilities with{" "}
-              <Text className="text-secondary-200">Aora</Text>
+            Bring Your Imagination {"\n"}
+            to Life with{" "}
+              <Text className="text-secondary-200">Tunmi</Text>
             </Text>
 
             <Image
@@ -50,14 +50,13 @@ const Welcome = () => {
           </View>
 
           <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
-            Where Creativity Meets Innovation: Embark on a Journey of Limitless
-            Exploration with Aora
+          Create Images, Illustrations & Videos from Local Language Text
           </Text>
 
           <CustomButton
-            title="Continue with Email"
-            handlePress={() => router.push("/home")}
-            containerStyles="w-full mt-7"
+            title="Get started"
+            handlePress={() => router.push("/sign-in")} 
+            containerStyles="w-full mt-7"  
           />
         </View>
       </ScrollView>

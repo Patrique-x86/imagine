@@ -4,7 +4,7 @@ import { Image, Text, View } from "react-native";
 
 import { icons } from "../../constants";
 import  Loader  from "../../components/Loader";
-// import { useGlobalContext } from "../../context/GlobalProvider";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
@@ -26,9 +26,9 @@ const TabIcon = ({ icon, color, name, focused }) => {
 };
 
 const TabLayout = () => {
-  // const { loading, isLogged } = useGlobalContext();
+   const { loading, isLogged } = useGlobalContext();
 
-  // if (!loading && !isLogged) return <Redirect href="/sign-in" />;
+   if (!loading && !isLogged) return <Redirect href="/sign-in" />;
 
   return (
     <>
@@ -100,7 +100,23 @@ const TabLayout = () => {
               <TabIcon
                 icon={icons.profile}
                 color={color}
-                name="Profile"
+                name="Video"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="generatevideo"
+          options={{
+            title: "Magic",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon={icons.bookmark}
+                color={color}
+                name="Magic"
                 focused={focused}
               />
             ),
@@ -108,7 +124,7 @@ const TabLayout = () => {
         />
       </Tabs>
 
-      {/* <Loader isLoading={loading} /> */}
+      <Loader isLoading={loading} />
       <StatusBar backgroundColor="#161622" style="light" />
     </>
   );
